@@ -14,3 +14,6 @@ extends Node
 #For my pieces I can use either 2D collision logic or keep track of the individual squares 
 #I will be going with collision logic as I believe it will be beneficial to easier piece interactions
 
+#Variables for the pieces
+
+

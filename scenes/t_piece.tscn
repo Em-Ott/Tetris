@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf2o6vsk4f0n0"]
+
+[ext_resource type="Texture2D" uid="uid://cq3mepae0dxcn" path="res://assets/T_2.png" id="1_0hdpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w22qo"]
+size = Vector2(340, 119.285)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q00q5"]
+size = Vector2(98.4452, 1281.05)
+
+[node name="TPiece" type="CharacterBody2D"]
+position = Vector2(398, 17)
+
+[node name="TPieceSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 8.57129)
+texture = ExtResource("1_0hdpb")
+
+[node name="TPieceCollisionTriple" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.42859, 51.071)
+shape = SubResource("RectangleShape2D_w22qo")
+
+[node name="TPieceCollisionSingle" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(6.10352e-05, -65.7927)
+rotation = -3.14159
+scale = Vector2(1.21895, -0.0844063)
+shape = SubResource("RectangleShape2D_q00q5")
