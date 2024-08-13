@@ -11,18 +11,36 @@
 position = Vector2(100, 900)
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_3q3tp")
+L_Piece = ExtResource("1_6b3ce")
+R_Piece = ExtResource("2_ygl57")
+S_Piece = ExtResource("3_o45i2")
+T_Piece = ExtResource("4_vm5n1")
+I_Piece = ExtResource("5_w1juq")
 
 [node name="LPiece" parent="." instance=ExtResource("1_6b3ce")]
 position = Vector2(590, -38)
+collision_mask = 3
+collision_priority = 2.0
+floor_block_on_wall = false
+platform_floor_layers = 4294901762
+platform_wall_layers = 2
 
 [node name="RPiece" parent="." instance=ExtResource("2_ygl57")]
 position = Vector2(600, 14.286)
+collision_mask = 3
+collision_priority = 2.0
 
 [node name="SPiece" parent="." instance=ExtResource("3_o45i2")]
 position = Vector2(600, 17.143)
+collision_mask = 3
+collision_priority = 2.0
 
 [node name="TPiece" parent="." instance=ExtResource("4_vm5n1")]
 position = Vector2(650, 17)
+collision_mask = 3
+collision_priority = 2.0
 
 [node name="IPiece" parent="." instance=ExtResource("5_w1juq")]
 position = Vector2(628, 70)
+collision_mask = 3
+collision_priority = 2.0

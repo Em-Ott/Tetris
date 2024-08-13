@@ -16,4 +16,3 @@ extends Node
 
 #Variables for the pieces
 
-

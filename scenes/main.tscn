@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7p7kcom03pqf"]
+[gd_scene load_steps=6 format=3 uid="uid://c7p7kcom03pqf"]
 
 [ext_resource type="Texture2D" uid="uid://wflnbu2albi2" path="res://assets/background.jpg" id="1_q1bcx"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_t4wa7"]
-[ext_resource type="PackedScene" uid="uid://bwshxlsiyj8a0" path="res://scenes/l_piece.tscn" id="2_yvdpu"]
 [ext_resource type="PackedScene" uid="uid://e2fseee7ww5i" path="res://scenes/pieces.tscn" id="3_qv3rm"]
-[ext_resource type="PackedScene" uid="uid://bc1pt5au2aw7l" path="res://scenes/r_piece.tscn" id="3_xq6re"]
-[ext_resource type="PackedScene" uid="uid://b4l13hs4jes2d" path="res://scenes/s_piece.tscn" id="4_cw3w5"]
-[ext_resource type="PackedScene" uid="uid://cf2o6vsk4f0n0" path="res://scenes/t_piece.tscn" id="5_j7hll"]
-[ext_resource type="PackedScene" uid="uid://bjg3flmbu53mj" path="res://scenes/i_piece.tscn" id="6_erxcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmvl4"]
+size = Vector2(492, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb4kl"]
+size = Vector2(72, 892.5)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t4wa7")
@@ -19,10 +20,24 @@ centered = false
 
 [node name="Pieces" parent="Background" instance=ExtResource("3_qv3rm")]
 position = Vector2(99, -68)
-L_Piece = ExtResource("2_yvdpu")
-R_Piece = ExtResource("3_xq6re")
-S_Piece = ExtResource("4_cw3w5")
-T_Piece = ExtResource("5_j7hll")
-I_Piece = ExtResource("6_erxcm")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Border" type="StaticBody2D" parent="Background"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(230, 982)
+shape = SubResource("RectangleShape2D_hmvl4")
+debug_color = Color(0, 0.603922, 0.678431, 1)
+
+[node name="LeftWall" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(-24, 501)
+shape = SubResource("RectangleShape2D_sb4kl")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="RightWall" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(463, 497)
+shape = SubResource("RectangleShape2D_sb4kl")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="MoveTimer" type="Timer" parent="."]

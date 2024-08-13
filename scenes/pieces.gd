@@ -43,7 +43,18 @@ func next_piece():
 		next_piece()
 
 func _process(delta):
+	move_piece()
 	current_piece.position.y += BLOCK_GRAVITY * delta
-	#use collision areas for floor and ceiling?
+	#use collision areas for floor and ceiling?    
 	
+func move_piece():
+	if Input.is_action_pressed("down_movement"):
+		current_piece.position.y += 5
+	if Input.is_action_pressed("left_movement"):
+		current_piece.position.x -= 10
+	if Input.is_action_pressed("right_movement"):
+		current_piece.position.x += 10
+	if Input.is_action_pressed("rotate"):
+		current_piece.rotation_degrees += 90
+
 
