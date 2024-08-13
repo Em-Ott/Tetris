@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7p7kcom03pqf"]
+
+[ext_resource type="Texture2D" uid="uid://wflnbu2albi2" path="res://assets/background.jpg" id="1_q1bcx"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_t4wa7"]
+[ext_resource type="PackedScene" uid="uid://e2fseee7ww5i" path="res://scenes/pieces.tscn" id="3_qv3rm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmvl4"]
+size = Vector2(492, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb4kl"]
+size = Vector2(72, 892.5)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_t4wa7")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -50
+texture = ExtResource("1_q1bcx")
+centered = false
+
+[node name="Pieces" parent="Background" instance=ExtResource("3_qv3rm")]
+position = Vector2(99, -68)
+
+[node name="Border" type="StaticBody2D" parent="Background"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(230, 982)
+shape = SubResource("RectangleShape2D_hmvl4")
+debug_color = Color(0, 0.603922, 0.678431, 1)
+
+[node name="LeftWall" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(-24, 501)
+shape = SubResource("RectangleShape2D_sb4kl")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="RightWall" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(463, 497)
+shape = SubResource("RectangleShape2D_sb4kl")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="MoveTimer" type="Timer" parent="."]
