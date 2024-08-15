@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://e2fseee7ww5i"]
+[gd_scene load_steps=12 format=3 uid="uid://e2fseee7ww5i"]
 
 [ext_resource type="Script" path="res://scenes/pieces.gd" id="1_3q3tp"]
 [ext_resource type="PackedScene" uid="uid://bwshxlsiyj8a0" path="res://scenes/l_piece.tscn" id="1_6b3ce"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b4l13hs4jes2d" path="res://scenes/s_piece.tscn" id="3_o45i2"]
 [ext_resource type="PackedScene" uid="uid://cf2o6vsk4f0n0" path="res://scenes/t_piece.tscn" id="4_vm5n1"]
 [ext_resource type="PackedScene" uid="uid://bjg3flmbu53mj" path="res://scenes/i_piece.tscn" id="5_w1juq"]
+[ext_resource type="Script" path="res://scenes/l_piece.gd" id="7_8dwts"]
+[ext_resource type="Script" path="res://scenes/r_piece.gd" id="8_dbnr2"]
+[ext_resource type="Script" path="res://scenes/s_piece.gd" id="9_l5hb7"]
+[ext_resource type="Script" path="res://scenes/t_piece.gd" id="10_jxqws"]
+[ext_resource type="Script" path="res://scenes/i_piece.gd" id="11_gr6tw"]
 
 [node name="Pieces" type="Node2D"]
 position = Vector2(100, 900)
@@ -24,23 +29,32 @@ collision_priority = 2.0
 floor_block_on_wall = false
 platform_floor_layers = 4294901762
 platform_wall_layers = 2
+script = ExtResource("7_8dwts")
 
 [node name="RPiece" parent="." instance=ExtResource("2_ygl57")]
 position = Vector2(600, 14.286)
 collision_mask = 3
 collision_priority = 2.0
+script = ExtResource("8_dbnr2")
 
 [node name="SPiece" parent="." instance=ExtResource("3_o45i2")]
 position = Vector2(600, 17.143)
 collision_mask = 3
 collision_priority = 2.0
+script = ExtResource("9_l5hb7")
 
 [node name="TPiece" parent="." instance=ExtResource("4_vm5n1")]
 position = Vector2(650, 17)
 collision_mask = 3
 collision_priority = 2.0
+script = ExtResource("10_jxqws")
 
 [node name="IPiece" parent="." instance=ExtResource("5_w1juq")]
 position = Vector2(628, 70)
 collision_mask = 3
 collision_priority = 2.0
+script = ExtResource("11_gr6tw")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="IPiece" method="_on_timer_timeout"]

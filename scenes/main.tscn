@@ -22,11 +22,12 @@ centered = false
 position = Vector2(99, -68)
 
 [node name="Border" type="StaticBody2D" parent="Background"]
+disable_mode = 1
 collision_layer = 2
 collision_mask = 0
 
 [node name="Floor" type="CollisionShape2D" parent="Background/Border"]
-position = Vector2(230, 982)
+position = Vector2(222, 638)
 shape = SubResource("RectangleShape2D_hmvl4")
 debug_color = Color(0, 0.603922, 0.678431, 1)
 
@@ -39,5 +40,3 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 position = Vector2(463, 497)
 shape = SubResource("RectangleShape2D_sb4kl")
 debug_color = Color(0, 0.6, 0.701961, 1)
-
-[node name="MoveTimer" type="Timer" parent="."]
